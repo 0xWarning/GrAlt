@@ -61,7 +61,9 @@ namespace GrAlt
 #if (DEBUG)
             Console.WriteLine("The supplied ip is " + "(" + supIP + ")");
             Console.WriteLine("Country Geo " + "(" + geoCon + ")");
-            Console.WriteLine("Full Resolved Geo " + "(" + geoRes + ")");
+
+            // Too long for console only uncomment if you don't want to read it
+            // Console.WriteLine("Full Resolved Geo " + "(" + geoRes + ")"); 
 #endif
             if (checkIP(supIP))
             {

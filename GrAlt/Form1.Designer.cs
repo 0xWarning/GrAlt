@@ -34,6 +34,7 @@
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
             this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
+            this.pictureEdit2 = new DevExpress.XtraEditors.PictureEdit();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
@@ -42,20 +43,19 @@
             this.xtraTabPage3 = new DevExpress.XtraTab.XtraTabPage();
             this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
-            this.pictureEdit2 = new DevExpress.XtraEditors.PictureEdit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
             this.xtraTabPage1.SuspendLayout();
             this.xtraTabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).BeginInit();
             this.groupControl3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit2.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // xtraTabControl1
@@ -110,10 +110,20 @@
             this.groupControl3.TabIndex = 4;
             this.groupControl3.Text = "Geo IP";
             // 
+            // pictureEdit2
+            // 
+            this.pictureEdit2.Location = new System.Drawing.Point(124, 26);
+            this.pictureEdit2.Name = "pictureEdit2";
+            this.pictureEdit2.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+            this.pictureEdit2.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
+            this.pictureEdit2.Size = new System.Drawing.Size(55, 49);
+            this.pictureEdit2.TabIndex = 0;
+            // 
             // simpleButton2
             // 
             this.simpleButton2.Location = new System.Drawing.Point(5, 52);
             this.simpleButton2.Name = "simpleButton2";
+            this.simpleButton2.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
             this.simpleButton2.Size = new System.Drawing.Size(113, 23);
             this.simpleButton2.TabIndex = 5;
             this.simpleButton2.Text = "Check Geolocation";
@@ -141,6 +151,7 @@
             // 
             this.simpleButton1.Location = new System.Drawing.Point(5, 52);
             this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
             this.simpleButton1.Size = new System.Drawing.Size(113, 23);
             this.simpleButton1.TabIndex = 5;
             this.simpleButton1.Text = "Check IP";
@@ -177,15 +188,6 @@
             this.groupControl1.TabIndex = 2;
             this.groupControl1.Text = "Something Here";
             // 
-            // pictureEdit2
-            // 
-            this.pictureEdit2.Location = new System.Drawing.Point(124, 26);
-            this.pictureEdit2.Name = "pictureEdit2";
-            this.pictureEdit2.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
-            this.pictureEdit2.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
-            this.pictureEdit2.Size = new System.Drawing.Size(55, 49);
-            this.pictureEdit2.TabIndex = 0;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -203,13 +205,13 @@
             this.xtraTabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).EndInit();
             this.groupControl3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
             this.groupControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit2.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

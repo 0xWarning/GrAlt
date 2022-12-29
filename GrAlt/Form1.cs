@@ -73,11 +73,20 @@ namespace GrAlt
                 switch (dr)
                 {
                     case DialogResult.Yes:
+#if (DEBUG)
+                        Console.WriteLine("Dialog result " + "(YES)");
+#endif
                         MessageBox.Show(geoRes, "Geolocation Result");
                         var s = new MemoryStream(doGrab.DownloadData("https://countryflagsapi.com/png/" + geoCon));
                         pictureEdit2.Image = new System.Drawing.Bitmap(s);
+#if (DEBUG)
+                        Console.WriteLine("Flag downloaded and set " + "("+ geoCon + ")");
+#endif
                         break;
                     case DialogResult.No:
+#if (DEBUG)
+                        Console.WriteLine("Dialog result " + "(NO)");
+#endif
                         MessageBox.Show("Aborted that one phew", "Validation");
                         break;
                 }

@@ -6,10 +6,13 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Net.NetworkInformation;
+using System.Net.Sockets;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DevExpress.XtraEditors;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
@@ -20,6 +23,12 @@ namespace GrAlt
 
     public partial class Form1 : DevExpress.XtraEditors.XtraForm
     {
+
+        public static class NetworkValidation
+        {
+            public static bool IsListeningPortAvailable(int port) =>
+                !IPGlobalProperties.GetIPGlobalProperties().GetActiveTcpListeners().Any(x => x.Port == port);
+        }
 
         private static readonly Regex validHostnameRegex = new Regex(@"^(([a-z]|[a-z][a-z0-9-]*[a-z0-9]).)*([a-z]|[a-z][a-z0-9-]*[a-z0-9])$", RegexOptions.IgnoreCase);
 
@@ -179,6 +188,63 @@ namespace GrAlt
         {
             string supIP = textEdit3.Text;
             checkHostname(supIP);
+        }
+
+        private void textEdit1_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void simpleButton4_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                System.Net.IPHostEntry ip = System.Net.Dns.GetHostEntry(textEdit4.Text);
+                string hostname = ip.HostName;
+                MessageBox.Show(hostname, "Ip to Hostname Result");
+            }
+            catch {
+                MessageBox.Show("An Error Has Occured | Please Report To The Developer !");
+            }
+        }
+
+        private void textEdit4_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void simpleButton5_Click(object sender, EventArgs e)
+        {
+
+
+            if (!NetworkInterface.GetIsNetworkAvailable())
+            {
+                // Network does not available.
+                MessageBox.Show("Website Not Available", "Is Up ?");
+                return;
+            }
+
+            Uri uri = new Uri(textEdit5.Text);
+
+            Ping ping = new Ping();
+            try
+            {
+                PingReply pingReply = ping.Send(uri.Host);
+                if (pingReply.Status != IPStatus.Success)
+                {
+                    // Website does not available.
+                    MessageBox.Show("Website not Available", "Is Up ?");
+                    return;
+                }
+                else
+                { MessageBox.Show("Website Is Available", "Is Up ?"); }
+            }
+            catch { MessageBox.Show("Uknown", "Is Up ?"); }
+        }
+
+        private void simpleButton6_Click(object sender, EventArgs e)
+        {
+       
         }
     }
 }

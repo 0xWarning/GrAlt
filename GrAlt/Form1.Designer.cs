@@ -94,7 +94,7 @@
             // 
             this.xtraTabPage1.Controls.Add(this.richTextBox1);
             this.xtraTabPage1.Name = "xtraTabPage1";
-            this.xtraTabPage1.Size = new System.Drawing.Size(283, 373);
+            this.xtraTabPage1.Size = new System.Drawing.Size(283, 290);
             this.xtraTabPage1.Text = "Home";
             // 
             // richTextBox1
@@ -107,7 +107,7 @@
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.ReadOnly = true;
             this.richTextBox1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.richTextBox1.Size = new System.Drawing.Size(283, 373);
+            this.richTextBox1.Size = new System.Drawing.Size(283, 290);
             this.richTextBox1.TabIndex = 1;
             this.richTextBox1.Text = resources.GetString("richTextBox1.Text");
             // 

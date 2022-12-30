@@ -23,17 +23,6 @@ namespace GrAlt
 
     public partial class Form1 : DevExpress.XtraEditors.XtraForm
     {
-
-        public static class NetworkValidation
-        {
-            public static bool IsListeningPortAvailable(int port) =>
-                !IPGlobalProperties.GetIPGlobalProperties().GetActiveTcpListeners().Any(x => x.Port == port);
-        }
-
-        private static readonly Regex validHostnameRegex = new Regex(@"^(([a-z]|[a-z][a-z0-9-]*[a-z0-9]).)*([a-z]|[a-z][a-z0-9-]*[a-z0-9])$", RegexOptions.IgnoreCase);
-
-        private static readonly Regex validIpRegex = new Regex(@"^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$");
-
         WebClient doGrab = new WebClient();
 
 
@@ -42,61 +31,10 @@ namespace GrAlt
             InitializeComponent();
         }
 
-        /// <summary>
-        /// Validates a host name.
-        /// </summary>
-        /// <param name="hostname"></param>
-        /// <returns></returns>
-        public static bool checkHostname(string hostname)
-        {
-            if (validHostnameRegex.IsMatch(hostname))
-            {
-#if (DEBUG)
-                Console.WriteLine("The supplied hostname is valid " + "(" + hostname + ")");
-#endif
-                MessageBox.Show("hostname Is Valid", "Validation");
-                return true;
-            }
-            else
-            {
-#if (DEBUG)
-                Console.WriteLine("The supplied hostname is Invalid " + "(" + hostname + ")");
-#endif
-                MessageBox.Show("hostname Is Invalid", "Validation");
-                return false;
-            }
-        }
-
-        /// <summary>
-        /// Validates a IP address.
-        /// </summary>
-        /// <param name="ip"></param>
-        /// <returns></returns>
-
-        public static bool checkIP(string ip)
-        {
-            if (validIpRegex.IsMatch(ip))
-            {
-#if (DEBUG)
-                Console.WriteLine("The supplied ip is valid " + "(" + ip + ")");
-#endif
-                MessageBox.Show("IP Is Valid", "Validation");
-                return true;
-            }
-            else
-            {
-#if (DEBUG)
-                Console.WriteLine("The supplied ip is Invalid " + "(" + ip + ")");
-#endif
-                MessageBox.Show("IP Is Invalid", "Validation");
-                return false;
-            }
-        }
-
         private void simpleButton1_Click(object sender, EventArgs e)
         {
             string supIP = textEdit1.Text;
-            checkIP(supIP);
+            NetworkHelper.checkIP(supIP);
         }
 
         private void simpleButton2_Click(object sender, EventArgs e)
@@ -120,7 +58,7 @@ namespace GrAlt
 
             if (comboBoxEdit1.Text == "IP")
             {
-                if (checkIP(supIPHost))
+                if (NetworkHelper.checkIP(supIPHost))
                 {
                     DialogResult dr = MessageBox.Show("Please confirm that you wish to geolocate this IP.",
                           "Confirmation", MessageBoxButtons.YesNo);
@@ -149,7 +87,7 @@ namespace GrAlt
             }
             else if (comboBoxEdit1.Text == "Hostname")
             {
-                if (checkHostname(supIPHost))
+                if (NetworkHelper.checkHostname(supIPHost))
                 {
                     DialogResult dr = MessageBox.Show("Please confirm that you wish to geolocate this Hostname.",
                           "Confirmation", MessageBoxButtons.YesNo);
@@ -187,7 +125,7 @@ namespace GrAlt
         private void simpleButton3_Click(object sender, EventArgs e)
         {
             string supIP = textEdit3.Text;
-            checkHostname(supIP);
+            NetworkHelper.checkHostname(supIP);
         }
 
         private void textEdit1_EditValueChanged(object sender, EventArgs e)
